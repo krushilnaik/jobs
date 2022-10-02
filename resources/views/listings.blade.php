@@ -6,11 +6,13 @@
   </h2>
 
   @if (count($listings))
-    @foreach ($listings as $listing)
-      <a href="/listings/{{ $listing->id }}">
-        <h3>{{ $listing->title }}</h3>
-      </a>
-    @endforeach
+    <ul class="flex flex-wrap gap-6">
+      @foreach ($listings as $listing)
+        <li>
+          <x-listing-card :listing="$listing" />
+        </li>
+      @endforeach
+    </ul>
   @else
     <h3>No listings found :(</h3>
   @endif

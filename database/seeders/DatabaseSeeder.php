@@ -47,7 +47,7 @@ class DatabaseSeeder extends Seeder
     ]);
 
     Listing::create([
-      'title' => 'Apple Senior Assistant Vice-Engineer Plus Ultra',
+      'title' => 'Senior Assistant Vice-Engineer Plus Ultra',
       'tags' => 'smartphones',
       'company' => 'Apple',
       'location' => 'Remote',
