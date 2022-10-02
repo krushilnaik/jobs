@@ -22,8 +22,8 @@ Route::prefix('/listings')->group(function () {
     ]);
   });
 
-  Route::get('/{id}', function ($id) {
-    return view('listing', Listing::find($id));
+  Route::get('/{listing}', function (Listing $listing) {
+    return view('listing', $listing);
   });
 });
 
