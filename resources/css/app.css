@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .nav-link {
+    @apply hover:text-rose-400 hover:duration-200;
+  }
+
+  .center {
+    @apply grid place-content-center;
+  }
+}

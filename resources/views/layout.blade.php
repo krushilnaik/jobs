@@ -11,11 +11,26 @@
   <title>Jobs</title>
 </head>
 
-<body class="dark:bg-[#181820] dark:text-slate-200 transition-colors">
-  <h1 class="text-5xl">Jobs</h1>
+<body class="bg-zinc-900 p-2 text-slate-200 transition-colors flex flex-col items-center min-h-screen">
+  <header class="flex max-w-main w-full justify-between items-center">
+    <h1 class="text-3xl font-semibold aspect-square w-[1.3em] center bg-sky-500 rounded-full">
+      J
+    </h1>
+
+    <nav class="w-fit text-lg">
+      <ul class="flex gap-4">
+        <li><a class="nav-link" href="/">Home</a></li>
+        <li><a class="nav-link" href="/listings">Listings</a></li>
+        <li>Login</li>
+      </ul>
+    </nav>
+  </header>
+
 
   {{-- Inject Blade Content --}}
-  @yield('content')
+  <main class="max-w-main w-full grow center">@yield('content')</main>
+
+  <footer class="text-slate-300">&copy; Krushil Naik 2022</footer>
 </body>
 
 </html>

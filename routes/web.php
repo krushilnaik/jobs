@@ -28,5 +28,5 @@ Route::prefix('/listings')->group(function () {
 });
 
 Route::get('/', function () {
-  return '<h1>Ya done goofed</h1>';
+  return view('home');
 });
