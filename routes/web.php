@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Listing;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::prefix('/listings')->group(function () {
+  Route::get('/', function () {
+    return view('listings', [
+      'heading' => 'Latest Listings',
+      'listings' => Listing::all(),
+    ]);
+  });
+
+  Route::get('/{id}', function ($id) {
+    return view('listing', Listing::find($id));
+  });
+});
+
 Route::get('/', function () {
-    return view('welcome');
+  return '<h1>Ya done goofed</h1>';
 });
