@@ -11,7 +11,7 @@
   <title>Jobs</title>
 </head>
 
-<body class="dark:bg-[#181820] dark:text-slate-200">
+<body class="dark:bg-[#181820] dark:text-slate-200 transition-colors">
   <h1 class="text-5xl">Jobs</h1>
 
   {{-- Inject Blade Content --}}
