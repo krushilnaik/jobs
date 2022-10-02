@@ -11,7 +11,7 @@
   <title>Jobs</title>
 </head>
 
-<body class="bg-zinc-900 p-2 text-slate-200 transition-colors flex flex-col items-center min-h-screen">
+<body class="p-2 transition-colors flex flex-col items-center min-h-screen">
   <header class="flex max-w-main w-full justify-between items-center">
     <h1 class="text-3xl font-semibold aspect-square w-[1.3em] center bg-sky-500 rounded-full">
       J

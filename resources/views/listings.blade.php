@@ -1,9 +1,7 @@
 @extends('layout')
 
 @section('content')
-  <h2>
-    <?php echo $heading; ?>
-  </h2>
+  <h2>{{ $heading }}</h2>
 
   @if (count($listings))
     <ul class="flex flex-wrap gap-6">
