@@ -7,8 +7,8 @@
 
   @if (count($listings))
     @foreach ($listings as $listing)
-      <a href="/listings/{{ $listing['id'] }}">
-        <h3>{{ $listing['title'] }}</h3>
+      <a href="/listings/{{ $listing->id }}">
+        <h3>{{ $listing->title }}</h3>
       </a>
     @endforeach
   @else

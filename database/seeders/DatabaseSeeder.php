@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
 
     Listing::create([
       'title' => 'Laravel Senior Developer',
-      'tags' => 'laravel, php',
+      'tags' => 'laravel,php',
       'company' => 'Acme Corp',
       'location' => 'Remote',
       'email' => 'email@acme.com',
@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
 
     Listing::create([
       'title' => 'JavaScript Senior Developer',
-      'tags' => 'nextjs, typescript',
+      'tags' => 'nextjs,typescript',
       'company' => 'Krushil Corp',
       'location' => 'Remote',
       'email' => 'email@krushil.com',
