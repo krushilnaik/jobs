@@ -13,4 +13,5 @@ $tag_list = explode(',', $tags);
     @endforeach
   </ul>
   <p>{{ $description }}</p>
+  <a href="/listings/{{ $id }}/edit">Edit Listing</a>
 @endsection

@@ -21,7 +21,7 @@
       <ul class="flex gap-4">
         <li><a class="nav-link" href="/">Home</a></li>
         <li><a class="nav-link" href="/listings">Listings</a></li>
-        <li>Login</li>
+        <li><a class="nav-link" href="/register">Login</a></li>
       </ul>
     </nav>
   </header>

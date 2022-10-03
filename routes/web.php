@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\ListingController;
-use App\Models\Listing;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +22,10 @@ Route::prefix('/listings')->group(function () {
   Route::post('/create', [ListingController::class, 'store']);
 
   Route::get('/{listing}', [ListingController::class, 'show']);
+  Route::get('/{listing}/edit', [ListingController::class, 'edit']);
 });
+
+Route::get('/register', [UserController::class, 'index']);
 
 Route::get('/', function () {
   return view('home');
