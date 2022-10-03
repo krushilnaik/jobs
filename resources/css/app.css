@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  input,
+  textarea {
+    @apply border-2 border-slate-400 rounded-lg p-1;
+  }
+}
+
 @layer utilities {
   .nav-link {
     @apply hover:text-rose-400 hover:duration-200;

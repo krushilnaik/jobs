@@ -31,6 +31,8 @@
   <main class="max-w-main w-full grow center">@yield('content')</main>
 
   <footer class="text-slate-300">&copy; Krushil Naik 2022</footer>
+
+  <x-flash-message />
 </body>
 
 </html>
