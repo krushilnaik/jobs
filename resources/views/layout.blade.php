@@ -13,15 +13,28 @@
 
 <body class="p-2 transition-colors flex flex-col items-center min-h-screen">
   <header class="flex max-w-main w-full justify-between items-center">
-    <h1 class="text-3xl font-semibold aspect-square w-[1.3em] center bg-sky-500 rounded-full">
-      J
-    </h1>
+    <a class="nav-link" href="/" aria-label="Home">
+      <h1 class="text-3xl font-semibold aspect-square w-[1.3em] center bg-sky-500 rounded-full">
+        J
+      </h1>
+    </a>
 
-    <nav class="w-fit text-lg">
+    <nav class="w-fit text-lg flex gap-4 items-center">
+      @auth
+        <span class="font-semibold uppercase text-base">Welcome, {{ auth()->user()->name }}</span>
+      @endauth
       <ul class="flex gap-4">
-        <li><a class="nav-link" href="/">Home</a></li>
+
+
         <li><a class="nav-link" href="/listings">Listings</a></li>
-        <li><a class="nav-link" href="/register">Login</a></li>
+
+        @auth
+          <li><a class="nav-link" href="/listings">Manage Listings</a></li>
+          <li><a class="nav-link" href="/logout">Logout</a></li>
+        @else
+          <li><a class="nav-link" href="/login">Login</a></li>
+          <li><a class="nav-link" href="/register">Register</a></li>
+        @endauth
       </ul>
     </nav>
   </header>

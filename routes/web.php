@@ -25,7 +25,8 @@ Route::prefix('/listings')->group(function () {
   Route::get('/{listing}/edit', [ListingController::class, 'edit']);
 });
 
-Route::get('/register', [UserController::class, 'index']);
+Route::get('/register', [UserController::class, 'create']);
+Route::post('/register', [UserController::class, 'store']);
 
 Route::get('/', function () {
   return view('home');
