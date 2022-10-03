@@ -3,6 +3,11 @@
 @section('content')
   <h2>{{ $heading }}</h2>
 
+  <form action="/listings">
+    <input type="text" name="search" id="search">
+    <input type="submit" value="Search">
+  </form>
+
   @if (count($listings))
     <ul class="flex flex-wrap gap-6">
       @foreach ($listings as $listing)
