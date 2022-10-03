@@ -30,7 +30,12 @@
 
         @auth
           <li><a class="nav-link" href="/listings">Manage Listings</a></li>
-          <li><a class="nav-link" href="/logout">Logout</a></li>
+          <li>
+            <form action="/logout" method="post">
+              @csrf
+              <button class="hover:text-rose-400" type="submit">Logout</button>
+            </form>
+          </li>
         @else
           <li><a class="nav-link" href="/login">Login</a></li>
           <li><a class="nav-link" href="/register">Register</a></li>
