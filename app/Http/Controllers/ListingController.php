@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Listing;
-use Illuminate\Validation\Rule;
-use Illuminate\Http\Request;
 
 class ListingController extends Controller
 {
@@ -17,7 +15,7 @@ class ListingController extends Controller
       'heading' => 'Latest Listings',
       'listings' => Listing::latest()
         ->filter(request(['tag', 'search']))
-        ->get(),
+        ->paginate(6),
     ]);
   }
 
