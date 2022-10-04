@@ -9,7 +9,7 @@ class UserController extends Controller
 {
   public function create()
   {
-    return view('register');
+    return view('auth.register');
   }
 
   public function store()
@@ -30,7 +30,7 @@ class UserController extends Controller
 
   public function login()
   {
-    return view('login');
+    return view('auth.login');
   }
 
   public function authenticate()

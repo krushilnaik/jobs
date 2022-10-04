@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.main')
 
 @section('content')
   <form action="/register" method="post" class="flex flex-col gap-4 w-72">

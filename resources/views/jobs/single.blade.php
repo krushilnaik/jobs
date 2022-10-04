@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.main')
 
 @php
 $tag_list = explode(',', $tags);

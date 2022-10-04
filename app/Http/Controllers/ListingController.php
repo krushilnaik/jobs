@@ -3,48 +3,54 @@
 namespace App\Http\Controllers;
 
 use App\Models\Listing;
-use Illuminate\Http\Request;
 
 class ListingController extends Controller
 {
   public function index()
   {
-    // show all listings
-    return view('listings', [
-      'heading' => 'Latest Listings',
-      'listings' => Listing::latest()
-        ->filter(request(['tag', 'search']))
-        ->paginate(6),
+    // show all listings (or filtered)
+    return view("jobs.all", [
+      "heading" => "Latest Listings",
+      "listings" => Listing::where(
+        "title",
+        "LIKE",
+        "%" . (request()->search ?? "") . "%"
+      )
+        ->where("tags", "LIKE", "%" . (request()->tag ?? "") . "%")
+        ->get(),
     ]);
   }
 
   public function show(Listing $listing)
   {
     // show single listing
-    return view('listing', $listing);
+    return view("jobs.single", $listing);
   }
 
   public function create()
   {
-    return view('create_listing');
+    return view("jobs.create");
   }
 
   public function store()
   {
-    Listing::create(request()->except('_token'));
+    Listing::create(request()->except("_token"));
 
-    return redirect('/')->with('message', 'Listing created successfully');
+    return redirect("/")->with("message", "Listing created successfully");
   }
 
   public function edit(Listing $listing)
   {
-    return view('edit_listing', $listing);
+    return view("jobs.edit", $listing);
   }
 
-  public function update(Request $request, Listing $listing)
+  public function update(Listing $listing)
   {
-    $listing->update($request->except('_token'));
+    $listing->update(request()->except("_token"));
 
-    return back()->with('message', 'Listing updated successfully');
+    return redirect("/listings/" . $listing->id)->with(
+      "message",
+      "Listing updated successfully"
+    );
   }
 }

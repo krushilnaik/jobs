@@ -10,23 +10,41 @@ class Listing extends Model
   use HasFactory;
 
   protected $fillable = [
-    'title',
-    'company',
-    'location',
-    'website',
-    'email',
-    'description',
-    'tags',
+    "title",
+    "company",
+    "location",
+    "website",
+    "email",
+    "description",
+    "tags",
   ];
 
-  public function scopeFilter($query, array $filters)
+  public function scopeTags($query, $tag)
   {
-    if ($filters['tag'] ?? false) {
-      $query->where('tags', 'like', '%' . request('tag') . '%');
+    if (!is_null($tag)) {
+      return $query->where("tag", "like", "%" . $tag . "%");
     }
 
-    if ($filters['search'] ?? false) {
-      $query->where('title', 'like', '%' . request('search') . '%');
-    }
+    return $query;
   }
+
+  public function scopeTitle($query, $title)
+  {
+    if (!is_null($title)) {
+      return $query->where("title", "like", "%" . $title . "%");
+    }
+
+    return $query;
+  }
+
+  // public function scopeFilter($query, array $filters)
+  // {
+  //   if ($filters['tag'] ?? false) {
+  //     $query->where('tags', 'like', '%' . request('tag') . '%');
+  //   }
+
+  //   if ($filters['search'] ?? false) {
+  //     $query->where('title', 'like', '%' . request('search') . '%');
+  //   }
+  // }
 }

@@ -15,25 +15,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('/listings')->group(function () {
-  Route::get('/', [ListingController::class, 'index']);
+Route::prefix("/listings")->group(function () {
+  Route::get("/", [ListingController::class, "index"]);
 
-  Route::get('/create', [ListingController::class, 'create']);
-  Route::post('/create', [ListingController::class, 'store']);
+  Route::get("/create", [ListingController::class, "create"]);
+  Route::post("/create", [ListingController::class, "store"]);
 
-  Route::get('/{listing}', [ListingController::class, 'show']);
-  Route::put('/{listing}', [ListingController::class, 'update']);
-  Route::get('/{listing}/edit', [ListingController::class, 'edit']);
+  Route::get("/{listing}", [ListingController::class, "show"]);
+  Route::put("/{listing}", [ListingController::class, "update"]);
+  Route::get("/{listing}/edit", [ListingController::class, "edit"]);
 });
 
-Route::get('/register', [UserController::class, 'create']);
-Route::post('/register', [UserController::class, 'store']);
+Route::get("/register", [UserController::class, "create"]);
+Route::post("/register", [UserController::class, "store"]);
 
-Route::get('/login', [UserController::class, 'login']);
-Route::post('/login', [UserController::class, 'authenticate']);
+Route::get("/login", [UserController::class, "login"]);
+Route::post("/login", [UserController::class, "authenticate"]);
 
-Route::post('/logout', [UserController::class, 'logout']);
+Route::post("/logout", [UserController::class, "logout"]);
 
-Route::get('/', function () {
-  return view('home');
+Route::get("/", function () {
+  return view("home");
 });

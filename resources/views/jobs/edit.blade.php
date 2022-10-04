@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.main')
 
 @section('content')
   <form action="/listings/{{ $id }}" method="POST" class="flex flex-col gap-4 w-96">
