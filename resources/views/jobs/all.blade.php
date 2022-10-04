@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-  <div class="w-[1000px] mt-16">
+  <div class="w-[1000px] max-w-[85vw] mt-16">
     <h2 class="text-4xl font-semibold">{{ $heading }}</h2>
 
     <form action="/listings" class="my-7 flex">

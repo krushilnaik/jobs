@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Listing;
+use Illuminate\Support\Facades\Auth;
 
 class ListingController extends Controller
 {
@@ -34,9 +35,12 @@ class ListingController extends Controller
 
   public function store()
   {
-    Listing::create(request()->except("_token"));
+    $fields = request()->except("_token");
+    $fields["user_id"] = Auth::id();
 
-    return redirect("/")->with("message", "Listing created successfully");
+    Listing::create($fields);
+
+    return redirect("/manage")->with("message", "Listing created successfully");
   }
 
   public function edit(Listing $listing)
@@ -46,11 +50,22 @@ class ListingController extends Controller
 
   public function update(Listing $listing)
   {
+    if ($listing->user_id != auth()->id()) {
+      abort(403, "Unauthorized action.");
+    }
+
     $listing->update(request()->except("_token"));
 
     return redirect("/listings/" . $listing->id)->with(
       "message",
       "Listing updated successfully"
     );
+  }
+
+  public function manage()
+  {
+    $listings = Listing::all()->where("user_id", "=", auth()->id());
+
+    return view("jobs.manage", ["listings" => $listings]);
   }
 }

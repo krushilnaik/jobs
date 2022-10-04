@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ListingFactory extends Factory
@@ -13,15 +14,46 @@ class ListingFactory extends Factory
    */
   public function definition()
   {
+    $roles = [
+      "Senior Laravel Engineer",
+      "Junior Frontend Developer",
+      "Fullstack Intern",
+      "DevOps Engineer",
+      "CEO",
+    ];
+
+    $tags = ["laravel,react", "vue,tailwindcss", "ruby on rails"];
+
+    $userIds = User::all()
+      ->pluck("id")
+      ->toArray();
+
+    // dd(
+    //   $this->faker->randomElement($userIds),
+    //   $this->faker->randomElement($roles),
+    //   $this->faker->randomElement($tags)
+    // );
+
+    // dd([
+    //   "title" => $this->faker->randomElement($roles),
+    //   "tags" => $this->faker->randomElement($tags),
+    //   "company" => $this->faker->company(),
+    //   "location" => $this->faker->city(),
+    //   "email" => $this->faker->companyEmail(),
+    //   "website" => $this->faker->url(),
+    //   "description" => join(" ", $this->faker->sentences(4)),
+    //   "user_id" => $this->faker->randomElement($userIds),
+    // ]);
+
     return [
-      'title' => $this->faker->sentence(),
-      'tags' => 'laravel,php',
-      'company' => $this->faker->company(),
-      'location' => $this->faker->city(),
-      'email' => $this->faker->companyEmail(),
-      'website' => $this->faker->url(),
-      'description' =>
-        'So Laravel. Very React Hooks. 100+ years Python experience required. cOmPtEtIvE SaLaRy.',
+      "title" => $this->faker->randomElement($roles),
+      "tags" => $this->faker->randomElement($tags),
+      "company" => $this->faker->company(),
+      "location" => $this->faker->city(),
+      "email" => $this->faker->companyEmail(),
+      "website" => $this->faker->url(),
+      "description" => join(" ", $this->faker->sentences(4)),
+      "user_id" => $this->faker->randomElement($userIds),
     ];
   }
 }

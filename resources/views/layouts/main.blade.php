@@ -31,7 +31,7 @@
         <li><a class="nav-link" href="/listings">Listings</a></li>
 
         @auth
-          <li><a class="nav-link" href="/listings">Manage Listings</a></li>
+          <li><a class="nav-link" href="/manage">Manage Listings</a></li>
           <li>
             <form action="/logout" method="post">
               @csrf

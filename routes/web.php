@@ -34,6 +34,8 @@ Route::post("/login", [UserController::class, "authenticate"]);
 
 Route::post("/logout", [UserController::class, "logout"]);
 
+Route::get("/manage", [ListingController::class, "manage"]);
+
 Route::get("/", function () {
   return view("home");
 });
