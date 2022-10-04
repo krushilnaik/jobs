@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Listing;
+use Illuminate\Http\Request;
 
 class ListingController extends Controller
 {
   public function index()
   {
-    // dd(request('tag'));
-
     // show all listings
     return view('listings', [
       'heading' => 'Latest Listings',
@@ -39,6 +38,13 @@ class ListingController extends Controller
 
   public function edit(Listing $listing)
   {
-    return view('edit_listing');
+    return view('edit_listing', $listing);
+  }
+
+  public function update(Request $request, Listing $listing)
+  {
+    $listing->update($request->except('_token'));
+
+    return back()->with('message', 'Listing updated successfully');
   }
 }

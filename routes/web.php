@@ -22,6 +22,7 @@ Route::prefix('/listings')->group(function () {
   Route::post('/create', [ListingController::class, 'store']);
 
   Route::get('/{listing}', [ListingController::class, 'show']);
+  Route::put('/{listing}', [ListingController::class, 'update']);
   Route::get('/{listing}/edit', [ListingController::class, 'edit']);
 });
 
