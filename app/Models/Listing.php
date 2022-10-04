@@ -17,6 +17,7 @@ class Listing extends Model
     "email",
     "description",
     "tags",
+    "user_id",
   ];
 
   public function scopeTags($query, $tag)

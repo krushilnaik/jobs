@@ -32,6 +32,7 @@
 
         @auth
           <li><a class="nav-link" href="/manage">Manage Listings</a></li>
+          <li><a class="nav-link" href="/listings/create">Create Listing</a></li>
           <li>
             <form action="/logout" method="post">
               @csrf
